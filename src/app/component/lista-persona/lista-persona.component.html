@@ -1,5 +1,7 @@
-<div>
-  <table class="table">
+<div class="formularioRegistro">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <table class="table text-center">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -8,6 +10,7 @@
         <th scope="col">Edad</th>
         <th scope="col">Pais</th>
         <th scope="col">Estado</th>
+        <th scope="col">Ver</th>
         <th scope="col">Editar</th>
         <th scope="col">Borrar</th>
       </tr>
@@ -20,8 +23,12 @@
         <td>{{persona.edad}}</td>
         <td>{{persona.pais.nombre}}</td>
         <td>{{persona.estado.nombre}}</td>
-        <td><button class="btn btn-outline-warning" routerLink="/editarPersona/{{persona.id}}"><i class="far fa-edit"></i> Editar</button></td>
-        <td><button class="btn btn-outline-danger" (click)="eliminar(persona)"><i class="far fa-trash-alt"></i> Eliminar</button></td>
+        <td><button class="btn btn-outline-primary" routerLink="/detallePersona/{{persona.id}}"><i
+              class="far fa-eye"></i> Ver</button></td>
+        <td><button class="btn btn-outline-warning" routerLink="/editarPersona/{{persona.id}}"><i
+              class="far fa-edit"></i> Editar</button></td>
+        <td><button class="btn btn-outline-danger" (click)="eliminar(persona)"><i class="far fa-trash-alt"></i>
+            Eliminar</button></td>
 
       </tr>
 

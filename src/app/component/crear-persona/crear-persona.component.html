@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row mt-5">
+  <div class="row mt-4">
     <div class="col-md-4 mx-auto">
       <form [formGroup]="personaForm" (ngSubmit)="guardar()">
         <div class="form-group">
@@ -15,18 +15,19 @@
           <input type="number" formControlName="edad" class="form-control">
         </div>
         <div class="form-group">
-          <label>Pais</label>
+          <label>Pais de origen</label>
           <select name="pais" id="pais" formControlName="pais" class="form-control">
             <option [ngValue]="item" *ngFor="let item of paises">{{item.nombre}}</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Estado o región</label>
+          <label>Estado o región de origen</label>
           <select estado="pais" id="estado" formControlName="estado" class="form-control">
             <option [ngValue]="item" *ngFor="let item of estados">{{item.nombre}}</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-outline-success btn-block" [disabled]="personaForm.invalid">Guardar</button>
+        <button type="submit" class="btn btn-outline-success btn-block" [disabled]="personaForm.invalid"><i class="far fa-save"></i> Guardar</button>
+        <button class="btn btn-outline-primary btn-block" (click)="return()"><i class="far fa-arrow-alt-circle-left"></i> Volver</button>
       </form>
 
     </div>

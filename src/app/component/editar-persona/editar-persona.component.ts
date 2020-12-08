@@ -30,19 +30,19 @@ export class EditarPersonaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.extractPersona();
     this.formPers();
     this.listPaises();
     this.listEstados();
+    this.extractPersona();
   }
 
-  extractPersona(): void{
+  extractPersona(): void {
     const id = this.activatedRoute.snapshot.params.id;
     this.personasService.detail(id).subscribe(
-      resp=> {
+      resp => {
         this.personas = resp;
       },
-      error=> {
+      error => {
         this.toastr.error(error.error.message, 'Fail', {
           timeOut: 3000,
         });
@@ -52,7 +52,7 @@ export class EditarPersonaComponent implements OnInit {
 
   }
 
-  formPers(): void{
+  formPers(): void {
     this.personaForm = this.fb.group({
       id: [''],
       nombre: ['', Validators.required],
@@ -65,7 +65,7 @@ export class EditarPersonaComponent implements OnInit {
 
   }
 
-  listEstados(): void{
+  listEstados(): void {
     this.personaForm.get('pais').valueChanges.subscribe(value => {
       this.estadosService.getAllEstadosByPais(value.id).subscribe(resp => {
         this.estados = resp;
@@ -79,7 +79,7 @@ export class EditarPersonaComponent implements OnInit {
 
   }
 
-  listPaises(): void{
+  listPaises(): void {
     this.paisesService.getAllPaises().subscribe(resp => {
       this.paises = resp;
     },
@@ -88,22 +88,26 @@ export class EditarPersonaComponent implements OnInit {
 
   }
 
-  updatePersona(): void{
+  updatePersona(): void {
     const id = this.activatedRoute.snapshot.params.id;
     this.personasService.updatePersona(id, this.personas).subscribe(
-      resp=> {
+      resp => {
         this.toastr.success('Persona actualizada', 'Ok', {
           timeOut: 3000,
         });
-        this.router.navigate(['/'])
+        this.return();
       },
-        error => {
-          this.toastr.error(error.error.message, 'Fail', {
-            timeOut: 3000,
+      error => {
+        this.toastr.error(error.error.message, 'Fail', {
+          timeOut: 3000,
 
-          });
-          this.router.navigate(['/'])
+        });
+        this.return();
       }
     );
+  }
+
+  return(): void {
+    this.router.navigate(['/'])
   }
 }
