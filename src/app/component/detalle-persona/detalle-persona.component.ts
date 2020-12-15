@@ -39,8 +39,8 @@ export class DetallePersonaComponent implements OnInit {
         this.personas = resp;
       },
       error=> {
-        this.toastr.error(error.error.message, 'Fail', {
-          timeOut: 3000,
+        this.toastr.error(error.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.return();
       }
@@ -48,7 +48,7 @@ export class DetallePersonaComponent implements OnInit {
   }
 
   return(): void{
-    this.router.navigate(['/'])
+    this.router.navigate(['/listaPersona'])
 
   }
 

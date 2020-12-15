@@ -14,6 +14,11 @@ import { ListaPersonaComponent } from './component/lista-persona/lista-persona.c
 import { CrearPersonaComponent } from './component/crear-persona/crear-persona.component';
 import { EditarPersonaComponent } from './component/editar-persona/editar-persona.component';
 import { DetallePersonaComponent } from './component/detalle-persona/detalle-persona.component';
+import { LoginComponent } from './component/auth/login/login.component';
+import { NewUserComponent } from './component/auth/new-user/new-user.component';
+import { MenuComponent } from './component/menu/menu.component';
+import { IndexComponent } from './component/index/index.component';
+import { interceptorProvider } from './services/interceptors/personas-interceptor.service';
 
 
 
@@ -23,7 +28,11 @@ import { DetallePersonaComponent } from './component/detalle-persona/detalle-per
     ListaPersonaComponent,
     CrearPersonaComponent,
     EditarPersonaComponent,
-    DetallePersonaComponent
+    DetallePersonaComponent,
+    LoginComponent,
+    NewUserComponent,
+    MenuComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +43,7 @@ import { DetallePersonaComponent } from './component/detalle-persona/detalle-per
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

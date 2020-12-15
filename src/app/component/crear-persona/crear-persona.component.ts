@@ -76,24 +76,22 @@ export class CrearPersonaComponent implements OnInit {
       resp => {
       this.personaForm.reset();
       this.toastr.success('Persona agregada', 'Ok', {
-        timeOut: 3000,
+        timeOut: 3000, positionClass: 'toast-top-center'
       });
       this.return();
     },
       error => {
-        this.toastr.error(error.error.message, 'Fail', {
-          timeOut: 3000,
+        this.toastr.error(error.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
 
         });
-        this.return();
-
       }
     )
 
   }
 
   return(): void {
-    this.router.navigate(['/'])
+    this.router.navigate(['/listaPersona'])
   }
 
 }

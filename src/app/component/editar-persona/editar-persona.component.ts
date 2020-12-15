@@ -93,13 +93,13 @@ export class EditarPersonaComponent implements OnInit {
     this.personasService.updatePersona(id, this.personas).subscribe(
       resp => {
         this.toastr.success('Persona actualizada', 'Ok', {
-          timeOut: 3000,
+          timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.return();
       },
       error => {
-        this.toastr.error(error.error.message, 'Fail', {
-          timeOut: 3000,
+        this.toastr.error(error.error.mensaje, 'Fail', {
+          timeOut: 3000, positionClass: 'toast-top-center'
 
         });
         this.return();
@@ -108,6 +108,6 @@ export class EditarPersonaComponent implements OnInit {
   }
 
   return(): void {
-    this.router.navigate(['/'])
+    this.router.navigate(['/listaPersona'])
   }
 }
